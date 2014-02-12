@@ -60,6 +60,5 @@ service "mod-gearman-worker" do
 end
 
 else
-Chef::Log.fatal('Platform is not debian or ubuntu')
-fail
+Chef::Log.error('Platform is not debian or ubuntu')
 end
