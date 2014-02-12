@@ -29,7 +29,7 @@ end
 
 # Adding nagios config with mod-gearman
 
-template "/etc/nagios3/nagios.cfg"
+template "/etc/nagios3/nagios.cfg" do
   source "nagios-mod.cfg.erb"
   action :create
 end
