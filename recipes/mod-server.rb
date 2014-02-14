@@ -331,13 +331,18 @@ end
 
 template "/etc/mod-gearman/module.conf" do
   source "module.conf.erb"
-  action :create_if_missing
-end
-
-template "/etc/mod-gearman/worker.conf" do
-  source "worker.conf.erb"
   action :create
 end
+
+worker_conf 'worker' do
+  variables(:hostgroups => hostgroups)
+end
+
+
+#template "/etc/mod-gearman/worker.conf" do
+#  source "worker.conf.erb"
+#  action :create
+#end
 
 template "/etc/default/gearman-job-server" do
   source "gearman-job-server.erb"

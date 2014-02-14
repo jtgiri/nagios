@@ -38,6 +38,11 @@ else
   default['nagios']['server']['mail_command']   = '/bin/mail'
 end
 
+#gearman dir
+default['gearman']['config_dir']     = '/etc/mod-gearman'
+default['gearman']['key']     = '12345678'
+default['gearman']['idfile']   = '/usr/share/mod-gearman/mod_gearman_p1.pl'
+
 # directories
 default['nagios']['home']          = '/usr/lib/nagios3'
 default['nagios']['conf_dir']      = '/etc/nagios3'
