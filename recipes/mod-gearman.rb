@@ -19,7 +19,8 @@ end
 
 template "/etc/mod-gearman/worker.conf" do
   source "worker.conf.erb"
-  action :create
+  variables(:hostgroups => hostgroups) 
+action :create
 end
 
 template "/etc/default/gearman-job-server" do
