@@ -182,6 +182,7 @@ if nagios_bags.bag_list.include?('nagios_hostgroups')
   end
 end
 
+node.default.hostgroups = hostgroups
 # pick up base contacts
 members = []
 sysadmins.each do |s|
@@ -311,3 +312,6 @@ nagios_nrpecheck 'check_nagios' do
   parameters "-F #{node["nagios"]["cache_dir"]}/status.dat -e 4 -C /usr/sbin/#{nagios_service_name}"
   action :add
 end
+
+include_recipe "nagios::_mod-gearman" if node['enable_gearman'] == true
+
