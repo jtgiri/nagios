@@ -3,7 +3,7 @@ identifier=<%= node['gearman']['hostgroup'] %>_worker
 debug=2
 logmode=automatic
 logfile=/var/log/mod-gearman/worker.log
-server=<%= node['gearman']['server-name'] %>
+server=<%= node['nagios']['server']['normalize_hostname'] ? node[node['nagios']['host_name_attribute']].downcase : node[node['nagios']['host_name_attribute']] %>:4730
 key=<%= node['gearman']['key'] %>
 hosts=yes
 services=yes

@@ -43,8 +43,8 @@ default['gearman']['config_dir']     = '/etc/mod-gearman'
 default['gearman']['key']     = '12345678'
 default['gearman']['idfile']   = '/usr/share/mod-gearman/mod_gearman_p1.pl'
 default['gearman']['hostgroup'] = "#{node.chef_environment}"
-default['gearman']['enabled'] = ""
-default['gearman']['server-name'] = ""
+default['gearman']['enabled'] = "false"
+
 # directories
 default['nagios']['home']          = '/usr/lib/nagios3'
 default['nagios']['conf_dir']      = '/etc/nagios3'

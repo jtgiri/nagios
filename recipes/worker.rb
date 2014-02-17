@@ -5,7 +5,7 @@
  end
 
   worker_conf 'worker' do
-  end
+   end
    
 
  directory "/var/log/mod-gearman" do
