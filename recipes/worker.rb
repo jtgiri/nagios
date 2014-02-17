@@ -5,7 +5,6 @@
  end
 
   worker_conf 'worker' do
-   variables(:hostgroups => hostgroups)
   end
    
 
