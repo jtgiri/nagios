@@ -45,8 +45,6 @@ default['gearman']['idfile']   = '/usr/share/mod-gearman/mod_gearman_p1.pl'
 default['gearman']['env']    =  ""
 default['gearman']['hostgroup'] = "#{node.chef_environment}"
 default['gearman']['enabled'] = ""
-default['gearman']['server'] = ""
-default['gearman']['worker'] = ""
 default['gearman']['server-name'] = ""
 # directories
 default['nagios']['home']          = '/usr/lib/nagios3'
