@@ -299,6 +299,10 @@ nagios_conf 'servicedependencies' do
   variables(:servicedependencies => servicedependencies)
 end
 
+if node['gearman']['enabled']
+ include_recipe "nagios::mod-gearman"
+end
+
 service 'nagios' do
   service_name nagios_service_name
   supports :status => true, :restart => true, :reload => true
