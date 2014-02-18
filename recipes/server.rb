@@ -21,6 +21,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+#If mod gearman is enabled, we need to update the apt on debain
+if node['gearman']['enabled']
+ include_recipe "apt"
+end
+
 # install nrpe first so the nagios user is available before we template files using that user
 include_recipe 'nagios::client'
 
