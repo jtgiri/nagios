@@ -22,7 +22,7 @@
 # limitations under the License.
 
 #If mod gearman is enabled, we need to update the apt on debain
-if node['gearman']['enabled']
+if node['gearman']['enabled'] == true
  include_recipe "apt"
 end
 
@@ -304,7 +304,7 @@ nagios_conf 'servicedependencies' do
   variables(:servicedependencies => servicedependencies)
 end
 
-if node['gearman']['enabled']
+if node['gearman']['enabled'] == true
  include_recipe "nagios::mod-gearman"
 end
 
