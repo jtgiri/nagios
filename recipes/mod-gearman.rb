@@ -44,4 +44,3 @@ end
    action [:enable, :restart]
  end
 
-include_recipe "nagios::worker"
