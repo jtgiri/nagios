@@ -37,10 +37,10 @@ elsif !Chef::Config[:solo] || node['nagios']['using_solo_search']
     mon_host << n['ipaddress']
   end
 end
-if node['gearman']['worker'] == true
-  wrk_node=search(:node, "role:worker AND chef_environment:#{node.chef_environment}")
-  node.default[:worker][:ip] = wrk_node.first[:ipaddress]
-end
+
+wrk_node=search(:node, "role:worker AND chef_environment:#{node.chef_environment}")
+node.default[:worker][:ip] = wrk_node.first[:ipaddress]
+
 # on the first run, search isn't available, so if you're the nagios server, go
 # ahead and put your own IP address in the NRPE config (unless it's already there).
 if node.run_list.roles.include?(node['nagios']['server_role'])
