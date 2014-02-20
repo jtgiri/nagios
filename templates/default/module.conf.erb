@@ -8,7 +8,7 @@ key=<%= node['gearman']['key'] %>
 hosts=yes
 services=yes
 eventhandler=yes
-hostgroups=<%= hostgroups %>
+hostgroups=<%= @hostgroups.sort.join(",") %>
 encryption=yes
 result_workers=3
 perfdata=yes
