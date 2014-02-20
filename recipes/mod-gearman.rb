@@ -14,7 +14,7 @@ end
 
  template "/etc/mod-gearman/module.conf" do
    source "module.conf.erb"
-   action :create_if_missing
+   action :create
  end
 
  template "/etc/default/gearman-job-server" do
