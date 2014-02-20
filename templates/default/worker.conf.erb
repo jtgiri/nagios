@@ -5,9 +5,9 @@ logmode=automatic
 logfile=/var/log/mod-gearman/worker.log
 server=<%= node['gearman']['server']  %>:4730
 key=<%= node['gearman']['key'] %>
-hosts=yes
-services=yes
-eventhandler=yes
+hosts=no
+services=no
+eventhandler=no
 hostgroups=<%= node['gearman']['hostgroup'] %>
 encryption=yes
 job_timeout=60
