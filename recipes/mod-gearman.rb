@@ -12,7 +12,13 @@ end
    action :create_if_missing
  end
 
+
+search(:environment, '*:*') do |e|
+    hostgroups << e.name
+end
+ 
  template "/etc/mod-gearman/module.conf" do
+   variables(:hostgroups => hostgroups)
    source "module.conf.erb"
    action :create
  end

@@ -8,6 +8,7 @@ key=<%= node['gearman']['key'] %>
 hosts=yes
 services=yes
 eventhandler=yes
+hostgroups=<%= n['hostgroups'].join(",") %>
 encryption=yes
 result_workers=3
 perfdata=yes
