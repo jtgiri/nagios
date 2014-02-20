@@ -13,6 +13,7 @@ end
  end
 
 
+hostgroups = []
 search(:environment, '*:*') do |e|
     hostgroups << e.name
 end
