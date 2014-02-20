@@ -19,7 +19,7 @@ debug=<%= node['nagios']['nrpe']['debug'] %>
 command_timeout=<%= node['nagios']['nrpe']['command_timeout'] %>
 <%= "connection_timeout=#{node['nagios']['nrpe']['connection_timeout']}" unless node['nagios']['nrpe']['connection_timeout'].nil? %>
 <% if node[:gearman][:worker] ==true -%>
-allowed_hosts=127.0.0.1,<%= node['worker']['ip']  %>
+allowed_hosts=<%= @mon_host.join(',') %>,<%= node['worker']['ip']  %>
 <% else %>
 allowed_hosts=<%= @mon_host.join(',') %>
 <% end -%>
