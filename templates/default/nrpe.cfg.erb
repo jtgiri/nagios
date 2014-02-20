@@ -5,9 +5,22 @@ pid_file=<%= node['nagios']['nrpe']['pidfile'] %>
 server_port=5666
 nrpe_user=<%= node['nagios']['user'] %>
 nrpe_group=<%= node['nagios']['group'] %>
+
+<% if node[:gearman][:worker] =="true" -%>
+command[check_users]=/usr/lib/nagios/plugins/check_users -w 5 -c 10
+command[check_load]=/usr/lib/nagios/plugins/check_load -w 15,10,5 -c 30,25,20
+command[check_hda1]=/usr/lib/nagios/plugins/check_disk -w 20% -c 10% -p /dev/hda1
+command[check_zombie_procs]=/usr/lib/nagios/plugins/check_procs -w 5 -c 10 -s Z
+command[check_total_procs]=/usr/lib/nagios/plugins/check_procs -w 150 -c 200
+<% end -%>
+
 dont_blame_nrpe=<%= node['nagios']['nrpe']['dont_blame_nrpe'] %>
 debug=<%= node['nagios']['nrpe']['debug'] %>
 command_timeout=<%= node['nagios']['nrpe']['command_timeout'] %>
 <%= "connection_timeout=#{node['nagios']['nrpe']['connection_timeout']}" unless node['nagios']['nrpe']['connection_timeout'].nil? %>
+<% if node[:gearman][:worker] =="true" -%>
+allowed_hosts=127.0.0.1,<%= node['worker']['ip']  %>
+<% else %>
 allowed_hosts=<%= @mon_host.join(',') %>
+<% end -%>
 include_dir=<%= @nrpe_directory %>
